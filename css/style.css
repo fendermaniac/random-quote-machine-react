@@ -1,0 +1,63 @@
+
+body {
+  font-family: "BioRhyme", serif;
+  height: 100vh;
+  background: repeating-linear-gradient(
+    45deg,
+    teal 0px,
+    teal 40px,
+    orange 40px,
+    orange 80px
+  );
+}
+
+a:link{
+  text-decoration: none;
+  }
+
+h1 {
+  text-align: center;
+  font-family: "Bungee", cursive;
+}
+
+p {
+  width: 90%;
+}
+
+.quote-buttons {
+  display: flex;
+  height: 50%;
+  width: 25%;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#quote-box {
+  display: flex;
+  margin: auto;
+  min-width: 250px;
+  flex-direction: column;
+  width: 75%;
+  height: 90%;
+  min-height: 250px;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2%;
+  box-shadow: 5px 5px 25px;
+}
+
+.button {
+  display: inline;
+  margin-top: 1rem;
+  transition: all 0.2s ease-in-out;
+  margin: 1rem;
+  background: white;
+  font-family: "BioRhyme", serif;
+}
+
+.button:hover {
+  transform: scale(1.2);
+}

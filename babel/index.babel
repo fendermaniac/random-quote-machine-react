@@ -1,0 +1,65 @@
+function Quote(props) {
+  return (
+    <div id={props.id}>
+      <p id="text">{props.quote}</p>
+      <p id="author">{`Quote by: ${props.author}`}</p>
+      <div>
+      <button id="new-quote" className="button" onClick={props.genQuote}>New Quote</button>
+      <a href={`https://twitter.com/intent/tweet?text=${props.quote} Quote by: ${props.author}`} target="_blank" id="tweet-quote"className="button"><button className="button">Tweet Quote</button></a>
+      </div>
+    </div>
+  );
+}
+
+class Box extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      quote: "",
+      author: ""
+    };
+    this.generateQuote = this.generateQuote.bind(this);
+    this.shareQuote = this.shareQuote.bind(this);
+  }
+
+  componentWillMount() {
+    this.generateQuote();
+  }
+
+  componentDidMount() {
+    this.generateQuote();
+  }
+
+  generateQuote() {
+    const url = "https://talaikis.com/api/quotes/random/";
+    fetch(url).then(response => response.json())
+      .then(quote => {
+        this.setState({
+          quote: quote.quote,
+          author: quote.author
+        });
+      });
+  }
+
+  shareQuote() {
+    console.log("clicked");
+    window.open( `https://twitter.com/intent/tweet?text=${this.state.quote} Quote by: ${this.state.author}`);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Random Quote Generator</h1>
+        <Quote
+          id="quote-box"
+          quote={this.state.quote}
+          author={this.state.author}
+          genQuote={this.generateQuote}
+          shareQuote={this.shareQuote}
+        />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Box />, document.getElementById("root"));
