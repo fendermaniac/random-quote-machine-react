@@ -16,7 +16,7 @@ class App extends Component {
      }
 
   componentDidMount() {
-
+    this.generateQuote()
   }
   
   generateQuote = () => {
@@ -42,8 +42,15 @@ class App extends Component {
     window.open( `https://twitter.com/intent/tweet?text=${this.state.quote} Quote by: ${this.state.name}`);
   }
 
-  deleteQuote = (e) => {
-    console.log(e.target.value)
+  deleteQuote = (i) => {
+    if (this.state.generatedQuotes.length !== -1 ){
+     let newQuotes = this.state.generatedQuotes;
+     newQuotes.splice(i, 1);
+     this.setState({
+      generatedQuotes: newQuotes
+     })
+    }
+    
   }
 
   render() { 
@@ -66,20 +73,28 @@ class App extends Component {
         <br/>
         <div className="columns is-multiline">
         
-          {this.state.generatedQuotes.map(item => 
-                <div className="column is-half" key={item.date}>
+          {this.state.generatedQuotes.map((item, i) => 
+                <div className="column is-half" key={i}>
                 <QuoteCard
                   author={item.author} 
                   quote={item.quote} 
                   email={item.email} 
                   date={item.date}
-                  deleteQuote={this.deleteQuote}
+                  deleteQuote={() => this.deleteQuote(i)}
                   shareQuote={this.shareQuote}
                 />
                 </div>
           )}
         </div>
+        <footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Random Quote Generator</strong> by <a href="https://github.com/fendermaniac">Joe LoPresti</a>. 
+    </p>
+  </div>
+</footer>
       </div>
+      
 
      );
   }
