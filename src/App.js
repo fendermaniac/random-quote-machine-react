@@ -55,10 +55,12 @@ class App extends Component {
 
   render() { 
     return ( 
+      <section className="section">
       <div className="container">
         <div className="columns">
         <div className="column is-half is-offset-one-quarter">
         <h1 className="is-size-3 has-text-centered">Random Quote Generator</h1>
+        <br />
         <Quote 
           quote={this.state.quote} 
           author={this.state.name} 
@@ -94,7 +96,7 @@ class App extends Component {
   </div>
 </footer>
       </div>
-      
+      </section> 
 
      );
   }
