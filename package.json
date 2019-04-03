@@ -1,8 +1,12 @@
 {
   "name": "random-quote-machine-react",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": false,
   "homepage": "https://fendermaniac.github.io/random-quote-machine-react/",
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
+  },
   "dependencies": {
     "bulma": "^0.7.4",
     "prop-types": "^15.7.2",
@@ -34,5 +38,16 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "gh-pages": "^2.0.1"
-  }
+  },
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fendermaniac/random-quote-machine-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fendermaniac/random-quote-machine-react/issues"
+  },
+  "description": ""
 }

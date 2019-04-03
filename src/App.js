@@ -3,9 +3,6 @@ import Quote from './Quote';
 import QuoteCard from './QuoteCard';
 import './App.css';
 
-
-// https://randomstoicquotesapi.herokuapp.com/api/v1/quotes
-
 class App extends Component {
   state = { 
       quote: 'Hello World',
@@ -50,7 +47,6 @@ class App extends Component {
       generatedQuotes: newQuotes
      })
     }
-    
   }
 
   render() { 
@@ -58,7 +54,9 @@ class App extends Component {
       <div className="container">
         <div className="columns">
         <div className="column is-half is-offset-one-quarter">
+        <br />
         <h1 className="is-size-3 has-text-centered">Random Quote Generator</h1>
+        <br/>
         <Quote 
           quote={this.state.quote} 
           author={this.state.name} 
@@ -95,7 +93,6 @@ class App extends Component {
 </footer>
       </div>
       
-
      );
   }
 }
