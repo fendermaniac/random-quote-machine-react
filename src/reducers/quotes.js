@@ -1,4 +1,4 @@
-import { QuoteActions } from '../actions';
+import { GENERATE_QUOTE, DELETE_QUOTE } from '../actions/types';
 
 const defaultState = 
 { quote: 'Hello World',
@@ -11,7 +11,7 @@ const defaultState =
 
 const quotes = (state = defaultState, action) => {
   switch(action.type) {
-    case 'GENERATE_QUOTE' : 
+    case GENERATE_QUOTE : 
       return {
         quote: action.quote,
         name: action.name,

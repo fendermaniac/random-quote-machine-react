@@ -1,13 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import store from './store';
 import App from './components/App';
-import rootReducer from './reducers';
-import './index.css'
-import 'bulma/css/bulma.css';
 
-const store = createStore(rootReducer)
+import './index.css';
+import 'bulma/css/bulma.css';
 
 render(
   <Provider store={store}>

@@ -1,4 +1,6 @@
-export const generateQuote = payload => {
+import { GENERATE_QUOTE, DELETE_QUOTE } from './types';
+
+export const generateQuote = (payload) => {
   type: 'GENERATE_QUOTE',
   payload
 }
