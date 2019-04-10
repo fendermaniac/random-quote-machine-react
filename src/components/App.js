@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Quote from './Quote';
 import QuoteCard from './QuoteCard';
+import { connect } from 'react-redux';
+import { generateQuote } from '../actions';
 
 class App extends Component {
   state = { 
@@ -12,27 +14,27 @@ class App extends Component {
      }
 
   componentDidMount() {
-    this.generateQuote()
+    generateQuote()
   }
   
-  generateQuote = () => {
-    const randomNum = Math.floor(Math.random() * (500 - 1)) + 1;
-    fetch(`https://jsonplaceholder.typicode.com/comments?id=${randomNum.toString()}`)
-    .then(res => res.json())
-    .then(data => this.setState({
-      quote: data[0].body,
-      name: data[0].name,
-      email: data[0].email,
-      date: Date(Date.now()),
-      generatedQuotes: 
-        [...this.state.generatedQuotes, { 
-          quote: data[0].body,
-          name: data[0].name,
-          email: data[0].email,
-          date: Date(Date.now()) }
-        ]
-    }));
-  }
+  // generateQuote = () => {
+  //   const randomNum = Math.floor(Math.random() * (500 - 1)) + 1;
+  //   fetch(`https://jsonplaceholder.typicode.com/comments?id=${randomNum.toString()}`)
+  //   .then(res => res.json())
+  //   .then(data => this.setState({
+  //     quote: data[0].body,
+  //     name: data[0].name,
+  //     email: data[0].email,
+  //     date: Date(Date.now()),
+  //     generatedQuotes: 
+  //       [...this.state.generatedQuotes, { 
+  //         quote: data[0].body,
+  //         name: data[0].name,
+  //         email: data[0].email,
+  //         date: Date(Date.now()) }
+  //       ]
+  //   }));
+  // }
 
   shareQuote = () => {
     window.open( `https://twitter.com/intent/tweet?text=${this.state.quote} Quote by: ${this.state.name}`);
@@ -97,4 +99,4 @@ class App extends Component {
   }
 }
  
-export default App;
+export default connect(null, { generateQuote })(App);
