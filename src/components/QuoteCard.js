@@ -3,6 +3,7 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 const QuoteCard = (props) => {
   const {
@@ -47,4 +48,11 @@ QuoteCard.propTypes = {
   shareQuote: PropTypes.func,
 };
 
-export default QuoteCard;
+const mapStateToProps = state => ({
+  quote: state.quote,
+  author: state.author,
+  email: state.email,
+  date: state.date,
+});
+
+export default connect()(QuoteCard);

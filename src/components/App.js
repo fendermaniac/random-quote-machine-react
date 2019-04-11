@@ -98,5 +98,9 @@ class App extends Component {
      );
   }
 }
+
+const mapStateToProps = state => ({
+  // generatedQuotes: state.generatedQuotes
+});
  
-export default connect(null, { generateQuote })(App);
+export default connect(mapStateToProps, { generateQuote })(App);

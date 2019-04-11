@@ -3,6 +3,8 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { generateQuote } from '../actions';
 
 const Quote = (props) => {
   const {
@@ -49,4 +51,8 @@ Quote.propTypes = {
   shareQuote: PropTypes.func,
 };
 
-export default Quote;
+const mapStateToProps = state => {
+  const { quote, author, email, date} = state;
+};
+
+export default connect(mapStateToProps, { generateQuote })(Quote);
