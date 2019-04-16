@@ -1,2 +1,3 @@
 export const GENERATE_QUOTE = 'GENERATE_QUOTE';
+export const SHARE_QUOTE = 'SHARE_QUOTE';
 export const DELETE_QUOTE = 'DELETE_QUOTE';

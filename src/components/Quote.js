@@ -4,12 +4,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { generateQuote } from '../actions';
 
 const Quote = (props) => {
   const {
     quote, author, email, date, generateQuote, shareQuote,
-  } = props;
+  } = this.props;
   return (
     <div className="box">
       <p>
@@ -55,4 +54,12 @@ const mapStateToProps = state => {
   const { quote, author, email, date} = state;
 };
 
-export default connect(mapStateToProps, { generateQuote })(Quote);
+const mapDispatchToProps = dispatch => {
+  return {
+    generateQuote: () => {
+      dispatch(generateQuote())
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Quote);

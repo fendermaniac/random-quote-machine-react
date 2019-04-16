@@ -1,4 +1,4 @@
-import { GENERATE_QUOTE, DELETE_QUOTE } from './types';
+import { GENERATE_QUOTE, SHARE_QUOTE, DELETE_QUOTE } from './types';
 
 
 export const generateQuote = () => dispatch => {
@@ -12,6 +12,10 @@ export const generateQuote = () => dispatch => {
       payload: quoteData
     })
   })
+}
+
+export const shareQuote = () => dispatch => {
+  window.open( `https://twitter.com/intent/tweet?text=${this.state.quote} Quote by: ${this.state.name}`);
 }
 
 export const deleteQuote = index => dispatch => {
