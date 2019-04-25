@@ -3,8 +3,6 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { deleteQuote } from '../actions';
 
 const QuoteCard = ({author, email, date, quote, deleteQuote}) => {
   return (
@@ -45,20 +43,4 @@ QuoteCard.propTypes = {
   deleteQuote: PropTypes.func,
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    quote: ownProps.quote,
-    author: ownProps.name,
-    email: ownProps.email,
-    date: ownProps.date,
-    i: ownProps.i,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    deleteQuote: () => dispatch(deleteQuote())    
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(QuoteCard);
+export default QuoteCard;

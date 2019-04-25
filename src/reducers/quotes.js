@@ -24,7 +24,8 @@ const quotes = (state = defaultState, action) => {
           date: action.date
         }]
       } 
-    case DELETE_QUOTE : console.log(action.payload);
+    case DELETE_QUOTE : 
+      console.log(action.payload)
         return {
           ...state,
           generatedQuotes: [...state.generatedQuotes.filter(quote => quote !== state.generatedQuotes[action.payload])]}

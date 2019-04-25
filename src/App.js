@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Quote from './components/Quote';
 import QuoteCard from './components/QuoteCard';
-import QuoteGrid from './components/QuoteGrid';
 import { connect } from 'react-redux';
-import { generateQuote } from './actions';
+import { generateQuote, deleteQuote } from './actions';
 
 class App extends Component {
 
@@ -33,9 +32,7 @@ class App extends Component {
                   quote={item.quote} 
                   email={item.email} 
                   date={item.date}
-                  i={i}
-                  deleteQuote={() => this.deleteQuote(i)}
-                  shareQuote={this.shareQuote}
+                  deleteQuote={this.props.deleteQuote}
                 />
                 </div>
           )}
@@ -63,7 +60,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    generateQuote: () => dispatch(generateQuote())
+    generateQuote: () => dispatch(generateQuote()),
+    deleteQuote: i => dispatch(deleteQuote(i))
   };
 }
  
