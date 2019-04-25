@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { generateQuote, shareQuote} from '../actions';
+import { generateQuote} from '../actions';
 
 const Quote = ({quote, author, email, date, generateQuote, shareQuote}) => {
 
@@ -33,7 +33,7 @@ const Quote = ({quote, author, email, date, generateQuote, shareQuote}) => {
       <br />
       <div className="buttons">
         <button className="button is-primary is-small" onClick={generateQuote}>New Quote</button>
-        <button className="button is-success is-small" onClick={shareQuote}>Tweet Quote</button>
+        <button className="button is-success is-small" onClick={() => window.open(`https://twitter.com/intent/tweet?text="${quote}" Quote by: ${author}`)}>Tweet Quote</button>
       </div>
 
     </div>
@@ -46,18 +46,22 @@ Quote.propTypes = {
   email: PropTypes.string,
   date: PropTypes.string,
   generateQuote: PropTypes.func,
-  shareQuote: PropTypes.func,
 };
 
 const mapStateToProps = state => {
-  const { quote, author, email, date} = state;
+
+  return {
+    quote: state.quotes.quote,
+    author: state.quotes.name,
+    email: state.quotes.email,
+    date: state.quotes.date,
+
+};
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    generateQuote: () => dispatch(generateQuote()),
-    shareQuote: () => dispatch(shareQuote()),
-    
+    generateQuote: () => dispatch(generateQuote())    
   };
 }
 

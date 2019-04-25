@@ -4,11 +4,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { deleteQuote} from '../actions';
 
-const QuoteCard = (props) => {
-  const {
-    author, email, date, quote, shareQuote, deleteQuote,
-  } = props;
+const QuoteCard = ({author, email, date, quote, deleteQuote}) => {
   return (
     <div className="box" key={date}>
       <article className="media">
@@ -32,7 +30,7 @@ const QuoteCard = (props) => {
       </article>
       <br />
       <div className="buttons">
-        <button className="button is-success is-small" onClick={shareQuote}>Tweet Quote</button>
+        <button className="button is-success is-small" onClick={() => window.open(`https://twitter.com/intent/tweet?text="${quote}" Quote by: ${author}`)}>Tweet Quote</button>
         <button className="button is-danger is-small" onClick={deleteQuote}>Delete Quote</button>
       </div>
     </div>
@@ -45,14 +43,21 @@ QuoteCard.propTypes = {
   email: PropTypes.string,
   date: PropTypes.string,
   deleteQuote: PropTypes.func,
-  shareQuote: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
-  quote: state.quote,
-  author: state.author,
-  email: state.email,
-  date: state.date,
-});
+const mapStateToProps = state => {
+  return {
+    quote: state.quotes.quote,
+    author: state.quotes.name,
+    email: state.quotes.email,
+    date: state.quotes.date,
+  };
+};
 
-export default connect()(QuoteCard);
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteQuote: () => dispatch(deleteQuote())    
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuoteCard);
