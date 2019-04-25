@@ -1,9 +1,9 @@
 import { GENERATE_QUOTE, DELETE_QUOTE, SHARE_QUOTE } from '../actions/types';
 
 const defaultState = 
-{ quote: 'Hello World',
-  name: 'Me',
-  email: 'foo@bar.com',
+{ quote: 'Hello World!',
+  name: 'Foo Bar',
+  email: 'foo@baz.com',
   date: Date(Date.now()),
   generatedQuotes: []
 

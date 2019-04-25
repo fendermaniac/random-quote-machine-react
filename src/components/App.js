@@ -5,13 +5,13 @@ import { connect } from 'react-redux';
 import { generateQuote } from '../actions';
 
 class App extends Component {
-  state = { 
-      quote: 'Hello World',
-      name: 'Me',
-      email: 'foo@bar.com',
-      date: Date(Date.now()),
-      generatedQuotes: []
-     }
+  // state = { 
+  //     quote: 'Hello World',
+  //     name: 'Me',
+  //     email: 'foo@bar.com',
+  //     date: Date(Date.now()),
+  //     generatedQuotes: []
+  //    }
 
   componentDidMount() {
     generateQuote()
