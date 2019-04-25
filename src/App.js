@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Quote from './Quote';
-import QuoteCard from './QuoteCard';
+import Quote from './components/Quote';
+import QuoteCard from './components/QuoteCard';
 import { connect } from 'react-redux';
-import { generateQuote } from '../actions';
+import { generateQuote } from './actions';
 
 class App extends Component {
   state = { 
@@ -85,8 +85,8 @@ class App extends Component {
                 </div>
           )}
         </div>
-        <footer class="footer">
-  <div class="content has-text-centered">
+        <footer className="footer">
+  <div className="content has-text-centered">
     <p>
       <strong>Random Quote Generator</strong> by <a href="https://github.com/fendermaniac">Joe LoPresti</a>. 
     </p>

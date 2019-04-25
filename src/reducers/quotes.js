@@ -1,4 +1,4 @@
-import { GENERATE_QUOTE, DELETE_QUOTE } from '../actions/types';
+import { GENERATE_QUOTE, DELETE_QUOTE, SHARE_QUOTE } from '../actions/types';
 
 const defaultState = 
 { quote: 'Hello World',
@@ -12,21 +12,13 @@ const defaultState =
 const quotes = (state = defaultState, action) => {
   switch(action.type) {
     case GENERATE_QUOTE : 
-      return {
-        quote: action.body,
-        name: action.name,
-        email: action.email,
-        date: action.date,
-        generatedQuotes: [...state.generatedQuotes, {
-          quote: action.quote,
-          name: action.name,
-          email: action.email,
-          date: action.date
-        }]
-      } 
+      console.log(action.payload)
+      return { ...state, quotes: action.payload, date: action.date } 
     case DELETE_QUOTE : 
         return {
           generatedQuotes: [...state.generatedQuotes.filter(quote => quote !== action.payload)]}
+    case SHARE_QUOTE : 
+          return state;
     default: 
       return state;
   }
