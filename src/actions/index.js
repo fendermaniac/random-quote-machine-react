@@ -6,7 +6,6 @@ export const generateQuote = () => dispatch => {
   return fetch(`https://jsonplaceholder.typicode.com/comments?id=${randomNum.toString()}`)
   .then(res => res.json())
   .then(data => {
-    return 
     console.log('data is being fetched')
     dispatch( {
       type: GENERATE_QUOTE, 

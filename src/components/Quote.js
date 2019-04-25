@@ -56,8 +56,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     generateQuote: () => dispatch(generateQuote()),
-    shareQuote: () => dispatch(shareQuote()),
-    
+    shareQuote: () => dispatch(shareQuote()),  
   };
 }
 
