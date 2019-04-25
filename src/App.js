@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Quote from './components/Quote';
 import QuoteCard from './components/QuoteCard';
+import QuoteGrid from './components/QuoteGrid';
 import { connect } from 'react-redux';
 import { generateQuote } from './actions';
 
@@ -18,15 +19,13 @@ class App extends Component {
         <div className="column is-half is-offset-one-quarter">
         <h1 className="is-size-3 has-text-centered">Random Quote Generator</h1>
         <br/>
-        <Quote 
-   
-          />
+        <Quote />
         </div>
         </div>
         <h1 className="is-size-4 has-text-centered">Recent Quotes</h1>
         <br/>
         <div className="columns is-multiline">
-        
+        {/* <QuoteGrid /> */}
           {this.props.generatedQuotes.map((item, i) => 
                 <div className="column is-half" key={i}>
                 <QuoteCard
@@ -34,6 +33,7 @@ class App extends Component {
                   quote={item.quote} 
                   email={item.email} 
                   date={item.date}
+                  i={i}
                   deleteQuote={() => this.deleteQuote(i)}
                   shareQuote={this.shareQuote}
                 />

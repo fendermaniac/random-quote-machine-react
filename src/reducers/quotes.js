@@ -12,7 +12,6 @@ const defaultState =
 const quotes = (state = defaultState, action) => {
   switch(action.type) {
     case GENERATE_QUOTE : 
-      console.log(action.payload.email)
       return { ...state, 
         quote: action.payload.body, 
         name: action.payload.name,
@@ -25,9 +24,10 @@ const quotes = (state = defaultState, action) => {
           date: action.date
         }]
       } 
-    case DELETE_QUOTE : 
+    case DELETE_QUOTE : console.log(action.payload);
         return {
-          generatedQuotes: [...state.generatedQuotes.filter(quote => quote !== action.payload)]}
+          ...state,
+          generatedQuotes: [...state.generatedQuotes.filter(quote => quote !== state.generatedQuotes[action.payload])]}
     default: 
       return state;
   }

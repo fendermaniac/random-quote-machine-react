@@ -48,7 +48,7 @@ Quote.propTypes = {
   generateQuote: PropTypes.func,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 
   return {
     quote: state.quotes.quote,

@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { deleteQuote} from '../actions';
+import { deleteQuote } from '../actions';
 
 const QuoteCard = ({author, email, date, quote, deleteQuote}) => {
   return (
@@ -31,7 +31,7 @@ const QuoteCard = ({author, email, date, quote, deleteQuote}) => {
       <br />
       <div className="buttons">
         <button className="button is-success is-small" onClick={() => window.open(`https://twitter.com/intent/tweet?text="${quote}" Quote by: ${author}`)}>Tweet Quote</button>
-        <button className="button is-danger is-small" onClick={deleteQuote}>Delete Quote</button>
+        <button className="button is-danger is-small" onClick={(i) => deleteQuote(i)}>Delete Quote</button>
       </div>
     </div>
   );
@@ -45,12 +45,13 @@ QuoteCard.propTypes = {
   deleteQuote: PropTypes.func,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    quote: state.quotes.quote,
-    author: state.quotes.name,
-    email: state.quotes.email,
-    date: state.quotes.date,
+    quote: ownProps.quote,
+    author: ownProps.name,
+    email: ownProps.email,
+    date: ownProps.date,
+    i: ownProps.i,
   };
 };
 
