@@ -24,7 +24,6 @@ class App extends Component {
         <h1 className="is-size-4 has-text-centered">Recent Quotes</h1>
         <br/>
         <div className="columns is-multiline">
-        {/* <QuoteGrid /> */}
           {this.props.generatedQuotes.map((item, i) => 
                 <div className="column is-half" key={i}>
                 <QuoteCard
@@ -32,6 +31,7 @@ class App extends Component {
                   quote={item.quote} 
                   email={item.email} 
                   date={item.date}
+                  id={item.id}
                   deleteQuote={this.props.deleteQuote}
                 />
                 </div>
@@ -58,11 +58,11 @@ const mapStateToProps = state => {
 };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
+const mapDispatchToProps = dispatch => ({
+
     generateQuote: () => dispatch(generateQuote()),
-    deleteQuote: i => dispatch(deleteQuote(i))
-  };
-}
+    deleteQuote: id => dispatch(deleteQuote(id))
+
+})
  
 export default connect(mapStateToProps, mapDispatchToProps)(App);

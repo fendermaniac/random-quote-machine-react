@@ -14,9 +14,8 @@ export const generateQuote = () => dispatch => {
   })
 }
 
-export const deleteQuote = index => dispatch => {
-    dispatch({
-      type: DELETE_QUOTE,
-      payload: index
-    }) 
-}
+export const deleteQuote = id => 
+({
+  type: DELETE_QUOTE,
+  id
+})

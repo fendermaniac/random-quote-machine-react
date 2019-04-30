@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { generateQuote} from '../actions';
 
-const Quote = ({quote, author, email, date, generateQuote, shareQuote}) => {
+const Quote = ({quote, author, email, date, generateQuote}) => {
 
   return (
     <div className="box">

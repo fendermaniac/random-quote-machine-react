@@ -5,7 +5,8 @@ const defaultState =
   name: 'Foo Bar',
   email: 'foo@baz.com',
   date: Date(Date.now()),
-  generatedQuotes: []
+  generatedQuotes: [],
+  id: 0
 
  }
 
@@ -17,18 +18,20 @@ const quotes = (state = defaultState, action) => {
         name: action.payload.name,
         email: action.payload.email,
         date: action.date,
+        id: action.payload.id,
         generatedQuotes: [...state.generatedQuotes, {
           quote: action.payload.body, 
           name: action.payload.name,
           email: action.payload.email,
-          date: action.date
+          date: action.date,
+          id: action.payload.id
         }]
       } 
     case DELETE_QUOTE : 
-      console.log(action.payload)
         return {
           ...state,
-          generatedQuotes: [...state.generatedQuotes.filter(quote => quote !== state.generatedQuotes[action.payload])]}
+          generatedQuotes: state.generatedQuotes.filter(quote=>quote.id !== action.id)
+        }
     default: 
       return state;
   }
