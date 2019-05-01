@@ -11,6 +11,7 @@ class App extends Component {
 
   render() {
     return (
+      <>
       <section className="section">
         <div className="container">
           <div className="columns">
@@ -38,7 +39,11 @@ class App extends Component {
               </div>
             ))}
           </div>
-          <footer className="footer">
+
+        </div>          
+
+      </section>        
+      <footer className="footer">
             <div className="content has-text-centered">
               <p>
                 <strong>Random Quote Generator</strong> by{" "}
@@ -46,8 +51,7 @@ class App extends Component {
               </p>
             </div>
           </footer>
-        </div>
-      </section>
+      </>
     );
   }
 }
