@@ -20,6 +20,7 @@ const QuoteCard = ({ author, email, date, quote, id, deleteQuote }) => {
           <div className="content">
             <p>
               <strong>{author}</strong>
+              <br />
               <small>{email}</small>
               <br />
               <small>
