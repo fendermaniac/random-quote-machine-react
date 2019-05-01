@@ -1,14 +1,15 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './store';
-import App from './App';
+import React from "react";
+import { render } from "react-dom";
+import { Provider } from "react-redux";
+import store from "./store";
+import App from "./App";
 
-import './index.css';
-import 'bulma/css/bulma.css';
+import "./index.css";
+import "bulma/css/bulma.css";
 
 render(
   <Provider store={store}>
-    <App/>
-  </Provider>
-    , document.getElementById('root'));
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
